@@ -1,19 +1,21 @@
 import styled from "styled-components"
 import { Button } from "../../generics"
 import prof2 from '../../../assets/images/prof2.png';
+import 'animate.css';
 
 function Content() {
+
   return (
     <ContentContainer>
         <MessageContainer>
             <h1>Planeje suas aulas com facilidade</h1>
-            <p>Crie seus planos de aula, envie relatórios para os resposáveis dos alunos e ganhe mais tempo para focar no conteúdo das aulas. </p>
+            <p>Crie seus planos de aula, envie relatórios para os resposáveis dos alunos e ganhe mais tempo para focar no conteúdo. </p>
             <div>
                 <Button text='Crie sua conta' colors='filled'></Button>
                 <Button text='Login'></Button>
             </div>
         </MessageContainer>
-        <img src={prof2} alt="ilustração de professora" />
+        <img src={prof2} alt="ilustração de professora" class="animate__animated animate__backInRight" />
     </ContentContainer>
   )
 }

@@ -1,11 +1,53 @@
 import styled from "styled-components"
-
+import 'animate.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 export function Button({text, colors}) {
   return (
    <StyledButton colors={colors}>{text}</StyledButton>
   )
 }
+
+
+export function Feature({title, description, image}) {
+  return (
+    <StyledFeature>
+        <img src={image} data-aos="zoom-in-up" data-aos-duration="1500"></img>
+        <h2>{title}</h2>
+        <p>{description}</p>
+    </StyledFeature>
+  )
+}
+
+
+const StyledFeature = styled.div`
+width: 320px;
+height: 384px;
+
+img{
+    width: 320px;
+    height: 214px;
+}
+
+h2{
+    font-size: 24px;
+    font-weight: 700;
+    color: #2F1160;
+    text-align: center;
+    margin-top: 10px;
+}
+
+p{
+    font-size: 16px;
+    color: #6F757B;
+    text-align: center;
+    margin-top: 10px;
+}
+
+`
 
 const StyledButton = styled.button`
 width: auto;
