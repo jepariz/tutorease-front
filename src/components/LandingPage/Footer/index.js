@@ -10,10 +10,10 @@ function Footer() {
         <button>Sign Up</button>
       </div>
       <div>
-      <ion-icon name="logo-linkedin"></ion-icon>
-      <ion-icon name="logo-twitter"></ion-icon>
-      <ion-icon name="logo-facebook"></ion-icon>
-      <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-linkedin"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
       </div>
     </FooterContainer>
   );
@@ -75,10 +75,20 @@ const FooterContainer = styled.div`
       font-family: "Nunito", sans-serif;
     }
 
-    ion-icon{
+    ion-icon {
       font-size: 25px;
       color: #5f41b2;
       margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+      input {
+        width: 200px;
+      }
+
+      button{
+        font-size: 14px;
+      }
     }
   }
 
@@ -86,10 +96,12 @@ const FooterContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 30px;
-   img{
-    display: none;
-   }
-
-
+    img {
+      display: none;
     }
+
+    input {
+      width: 200px;
+    }
+  }
 `;

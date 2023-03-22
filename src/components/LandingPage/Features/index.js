@@ -81,7 +81,7 @@ const TitleContainer = styled.div`
     }
 
     p {
-      line-height: 40px;
+      line-height: 30px;
     }
   }
 `;

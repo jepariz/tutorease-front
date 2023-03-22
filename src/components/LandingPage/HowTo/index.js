@@ -124,6 +124,10 @@ const HowToTitle = styled.div`
       font-size: 39px;
       line-height: 48px;
     }
+
+    p{
+      line-height: 20px;
+    }
   }
 `;
 const HowToDetailsContainer = styled.div`
