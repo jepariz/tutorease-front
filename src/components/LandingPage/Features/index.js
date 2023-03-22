@@ -4,9 +4,7 @@ import feature1 from "../../../assets/images/features/feature1.png";
 import feature2 from "../../../assets/images/features/feature2.png";
 import feature3 from "../../../assets/images/features/feature3.png";
 
-
 function Features() {
-
   return (
     <FeaturesContainer>
       <TitleContainer>
@@ -45,6 +43,14 @@ export default Features;
 const FeaturesContainer = styled.div`
   width: 100%;
   padding: 40px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 40px;
+  }
 `;
 
 const TitleContainer = styled.div`
@@ -65,6 +71,19 @@ const TitleContainer = styled.div`
     line-height: 63px;
     color: #6f757b;
   }
+
+  @media (max-width: 768px) {
+    text-align: left;
+
+    h1 {
+      font-size: 39px;
+      line-height: 48px;
+    }
+
+    p {
+      line-height: 40px;
+    }
+  }
 `;
 
 const FeaturesDetailsContainer = styled.div`
@@ -73,4 +92,10 @@ const FeaturesDetailsContainer = styled.div`
   gap: 50px;
   justify-content: center;
   margin-top: 50px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    
+  }
 `;

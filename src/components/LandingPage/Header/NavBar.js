@@ -27,6 +27,20 @@ img{
     width: 150px;
     height: 60px;
 }
+
+
+@media (max-width: 768px) {
+
+  justify-content: center;
+
+  img{
+      width: 300px;
+     height: 80px;
+     }
+    
+ }
+
+
 `
 const NavBarButtonsDiv = styled.div`
 display: flex;
@@ -39,4 +53,8 @@ a{
     font-weight: 500;
     text-decoration: none;
 }
+
+@media (max-width: 768px) {
+    display: none;
+  }
 `

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import howto from "../../../assets/images/howto.png";
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 AOS.init();
 
@@ -10,7 +10,8 @@ function HowTo() {
     <HowToContainer>
       <img
         src={howto}
-        data-aos="fade-up-right" data-aos-duration="2000"
+        data-aos="fade-up-right"
+        data-aos-duration="2000"
         alt="desenho de um homem usando computador sentado sobre livros gigantes"
       ></img>
       <HowToContent>
@@ -27,35 +28,46 @@ function HowTo() {
               <ion-icon name="person-circle-outline"></ion-icon>
             </HowToDetailIcon>
             <HowToDetailDescription>
-                <h2>Crie a sua conta</h2>
-                <p>Para criar a sua conta você só precisa de um e-mail válido.</p>
+              <h2>Crie a sua conta</h2>
+              <p>Para criar a sua conta você só precisa de um e-mail válido.</p>
             </HowToDetailDescription>
           </HowToDetail>
           <HowToDetail>
             <HowToDetailIcon>
-            <ion-icon name="people-circle-outline"></ion-icon>
+              <ion-icon name="people-circle-outline"></ion-icon>
             </HowToDetailIcon>
             <HowToDetailDescription>
-                <h2>Cadastre seus alunos</h2>
-                <p>Crie facilmente uma ficha com os dados do aluno e do responsável.</p>
+              <h2>Cadastre seus alunos</h2>
+              <p>
+                Crie facilmente uma ficha com os dados do aluno e do
+                responsável.
+              </p>
             </HowToDetailDescription>
           </HowToDetail>
           <HowToDetail>
             <HowToDetailIcon>
-            <ion-icon name="document-text-outline"></ion-icon>
+              <ion-icon name="document-text-outline"></ion-icon>
             </HowToDetailIcon>
             <HowToDetailDescription>
-                <h2>Crie seus planos de aula</h2>
-                <p>Crie planos de aula a partir do nosso modelo levando em consideração as habilidades e competências da BNCC.</p>
+              <h2>Crie seus planos de aula</h2>
+              <p>
+                Crie planos de aula a partir do nosso modelo levando em
+                consideração as habilidades e competências da BNCC.
+              </p>
             </HowToDetailDescription>
           </HowToDetail>
           <HowToDetail>
             <HowToDetailIcon>
-            <ion-icon name="send-outline"></ion-icon>
+              <ion-icon name="send-outline"></ion-icon>
             </HowToDetailIcon>
             <HowToDetailDescription>
-                <h2>Envie seus planos de aula para os responsáveis</h2>
-                <p>Depois de planejar suas aulas, você pode enviar um resumo do planejamento para os responsáveis dos alunos. Dessa forma, eles acompanham o desenvolvimento da aprendizagem e você economiza tempo.</p>
+              <h2>Envie seus planos de aula para os responsáveis</h2>
+              <p>
+                Depois de planejar suas aulas, você pode enviar um resumo do
+                planejamento para os responsáveis dos alunos. Dessa forma, eles
+                acompanham o desenvolvimento da aprendizagem e você economiza
+                tempo.
+              </p>
             </HowToDetailDescription>
           </HowToDetail>
         </HowToDetailsContainer>
@@ -76,6 +88,12 @@ const HowToContainer = styled.div`
   img {
     width: 500px;
     height: 580px;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      display: none;
+    }
   }
 `;
 const HowToContent = styled.div`
@@ -100,6 +118,13 @@ const HowToTitle = styled.div`
     color: #2f1160;
     margin-top: 10px;
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 39px;
+      line-height: 48px;
+    }
+  }
 `;
 const HowToDetailsContainer = styled.div`
   width: 100%;
@@ -111,6 +136,10 @@ const HowToDetail = styled.div`
   width: 100%;
   display: flex;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 const HowToDetailIcon = styled.div`
   width: 55px;
@@ -125,21 +154,36 @@ const HowToDetailIcon = styled.div`
     color: #fefefe;
     font-size: 30px;
   }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+
+    ion-icon {
+      font-size: 20px;
+    }
+  }
 `;
 
 const HowToDetailDescription = styled.div`
-width: 100%;
+  width: 100%;
 
-h2{
+  h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #2F1160;
-}
+    color: #2f1160;
+  }
 
-p{
+  p {
     font-size: 16px;
-    color: #6F757B;
+    color: #6f757b;
     margin-top: 10px;
     line-height: 23px;
-}
-`
+  }
+
+  @media (max-width: 768px) {
+    p {
+      line-height: 20px;
+    }
+  }
+`;

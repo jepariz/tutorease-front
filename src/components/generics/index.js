@@ -47,6 +47,21 @@ p{
     margin-top: 10px;
 }
 
+@media (max-width: 768px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+    img{
+      width: 280px;
+      height: 180px;
+    }
+
+    p{
+      line-height: 20px;
+    }
+  }
+
 `
 
 const StyledButton = styled.button`

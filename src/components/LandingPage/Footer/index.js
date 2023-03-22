@@ -81,4 +81,15 @@ const FooterContainer = styled.div`
       margin-left: 10px;
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+   img{
+    display: none;
+   }
+
+
+    }
 `;
