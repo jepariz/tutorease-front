@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import 'animate.css';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
+import 'aos/dist/aos.css'; 
+
 AOS.init();
 
 export function Button({text, colors}) {
@@ -12,10 +12,10 @@ export function Button({text, colors}) {
 }
 
 
-export function Feature({title, description, image}) {
+export function Feature({title, description, image, altprop}) {
   return (
     <StyledFeature>
-        <img src={image} data-aos="zoom-in-up" data-aos-duration="1500"></img>
+        <img src={image} data-aos="zoom-in-up" data-aos-duration="1000" alt="ilustra"></img>
         <h2>{title}</h2>
         <p>{description}</p>
     </StyledFeature>

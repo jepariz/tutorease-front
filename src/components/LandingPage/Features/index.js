@@ -21,16 +21,19 @@ function Features() {
           title="Gerencie sua lista de alunos de forma prática"
           description="Cadastre seus alunos e controle a quantidade de aulas dadas e os conteúdos que você trabalhou."
           image={feature1}
+          altprop="desenho de uma ficha de cadastro do aluno"
         ></Feature>
         <Feature
           title="Acesse seus planos em qualquer dispositivo"
           description="Acabe com o problema de esquecer a agenda em casa. Com o nosso planner seus planos de aula estão sempre à mão."
           image={feature2}
+          altprop="desenho de um computador e um celular"
         ></Feature>
         <Feature
           title="Melhore a comunicação com os responsáveis"
-          description="Chega de passar horas respondendo mensagens no Whatsapp. Crie e envie relatórios de aprendizagem de forma simples."
+          description="Chega de passar horas respondendo mensagens no Whatsapp. Crie e envie para os responsáveis pelo arelatórios de aprendizagem de forma simples."
           image={feature3}
+          altprop="desenho de dois balões de diálogo"
         ></Feature>
       </FeaturesDetailsContainer>
     </FeaturesContainer>
@@ -50,7 +53,7 @@ const TitleContainer = styled.div`
   margin-top: 30px;
 
   h1 {
-    font-size: 53px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 63px;
     color: #2f1160;

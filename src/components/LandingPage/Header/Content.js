@@ -44,7 +44,7 @@ flex-direction: column;
 gap: 30px;
 
 h1{
-    font-size: 53px;
+    font-size: 55px;
     font-weight: 700;
     color: #2F1160;
     line-height: 63px;
