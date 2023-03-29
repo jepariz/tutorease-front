@@ -1,9 +1,26 @@
 import styled from "styled-components";
 import { Button } from "../../generics";
 import prof2 from "../../../assets/images/prof2.png";
+import { Link, useNavigate } from "react-router-dom";
 import "animate.css";
+import { useContext } from "react";
+import AuthContext from "../../../contexts/AuthContext";
 
 function Content() {
+  const { setFormType } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleRegisterClick = () => {
+    setFormType("register");
+    navigate("/auth");
+  };
+
+  const handleLoginClick = () => {
+    setFormType("login");
+    navigate("/auth");
+  };
+
   return (
     <ContentContainer>
       <MessageContainer>
@@ -13,14 +30,18 @@ function Content() {
           alunos e ganhe mais tempo para focar no conteúdo.{" "}
         </p>
         <div>
-          <Button text="Crie sua conta" colors="filled"></Button>
-          <Button text="Login"></Button>
+          <StyledRegisterButton onClick={handleRegisterClick}>
+            Crie sua conta
+          </StyledRegisterButton>
+          <StyledLoginButton onClick={handleLoginClick}>
+            Login
+          </StyledLoginButton>
         </div>
       </MessageContainer>
       <img
         src={prof2}
         alt="ilustração de professora"
-        class="animate__animated animate__backInRight"
+        className="animate__animated animate__backInRight animate__slow	2s"
       />
     </ContentContainer>
   );
@@ -84,4 +105,29 @@ const MessageContainer = styled.div`
       line-height: 48px;
     }
   }
+`;
+
+const StyledRegisterButton = styled.button`
+  width: auto;
+  min-width: 94px;
+  height: 48px;
+  padding: 5px 20px;
+  border-radius: 4px;
+  background-color: #5f41b2;
+  color: #fefefe;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+`;
+const StyledLoginButton = styled.button`
+  width: auto;
+  min-width: 94px;
+  height: 48px;
+  padding: 5px 20px;
+  border-radius: 4px;
+  background-color: #fefefe;
+  color: #5f41b2;
+  border: 3px solid #5f41b2;
+  font-weight: 700;
+  font-size: 16px;
 `;

@@ -1,12 +1,26 @@
+import { useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import AuthContext, { AuthProvider } from "./contexts/AuthContext";
+import GlobalStyle from "./GlobalStyles";
+import Auth from "./pages/Auth";
 import LandindPage from "./pages/LandingPage";
 
-function App() {
+export default function App() {
+
   return (
-    <div className="App">
-      <LandindPage></LandindPage>
-     
-    </div>
+    <AuthProvider>
+      <Router>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<LandindPage />} />
+          <Route path="/auth" element={<Auth />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
-
-export default App;
