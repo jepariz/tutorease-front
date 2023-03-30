@@ -1,6 +1,6 @@
 import Features from '../../components/LandingPage/Features'
 import Footer from '../../components/LandingPage/Footer'
-import Header from '../../components/LandingPage/Header/Header'
+import Header from '../../components/LandingPage/Header/index'
 import HowTo from '../../components/LandingPage/HowTo'
 
 function LandindPage() {

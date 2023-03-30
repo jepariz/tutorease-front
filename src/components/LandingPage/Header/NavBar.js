@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import tutorEaseImage from "../../../assets/images/tutorEase.svg";
-import { Button } from "../../generics";
-import { useNavigate, Link } from "react-router-dom";
 
 function NavBar() {
   return (

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import signin6 from "../../assets/images/signin/signin6.png";
+import login from "../../assets/images/login.png";
 import tutorEaseImage from "../../assets/images/tutorEase.svg";
 import AuthForm from "../../components/Auth/Form";
 import AuthContext from "../../contexts/AuthContext";
@@ -15,7 +15,7 @@ function Auth() {
   return (
     <AuthContainer>
        <AuthMessageContainer>
-        <img src={signin6}></img>
+        <img src={login}></img>
       </AuthMessageContainer>
       <AuthFormContainer>
         <AuthFormLogoContainer>

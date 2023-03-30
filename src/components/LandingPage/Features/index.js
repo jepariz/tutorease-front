@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Feature } from "../../generics";
+import { Feature } from "../../Generics";
 import feature1 from "../../../assets/images/features/feature1.png";
 import feature2 from "../../../assets/images/features/feature2.png";
 import feature3 from "../../../assets/images/features/feature3.png";
