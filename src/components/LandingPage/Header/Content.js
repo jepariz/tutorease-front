@@ -6,17 +6,10 @@ import { useContext } from "react";
 import AuthContext from "../../../contexts/AuthContext";
 
 function Content() {
-  const { setFormType } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const handleRegisterClick = () => {
-    setFormType("register");
-    navigate("/auth");
-  };
-
-  const handleLoginClick = () => {
-    setFormType("login");
     navigate("/auth");
   };
 
@@ -30,11 +23,8 @@ function Content() {
         </p>
         <div>
           <StyledRegisterButton onClick={handleRegisterClick}>
-            Crie sua conta
+            Sign up
           </StyledRegisterButton>
-          <StyledLoginButton onClick={handleLoginClick}>
-            Login
-          </StyledLoginButton>
         </div>
       </MessageContainer>
       <img
@@ -107,7 +97,7 @@ const MessageContainer = styled.div`
 `;
 
 const StyledRegisterButton = styled.button`
-  width: auto;
+  width: 200px;
   min-width: 94px;
   height: 48px;
   padding: 5px 20px;

@@ -3,15 +3,16 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Navigate,
 } from "react-router-dom";
 import AuthContext, { AuthProvider } from "./contexts/AuthContext";
 import GlobalStyle from "./GlobalStyles";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import LandindPage from "./pages/LandingPage";
+import { auth } from "./configs/firebase";
 
 export default function App() {
-
   return (
     <AuthProvider>
       <Router>
@@ -19,9 +20,26 @@ export default function App() {
         <Routes>
           <Route path="/" element={<LandindPage />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRouteGuard>
+                <Dashboard />
+              </ProtectedRouteGuard>
+            }
+          />
         </Routes>
       </Router>
     </AuthProvider>
   );
+}
+
+function ProtectedRouteGuard({ children }) {
+  const token = auth?.currentUser?.uid;
+
+  if (!token) {
+    return <Navigate to="/auth" />;
+  }
+
+  return <>{children}</>;
 }

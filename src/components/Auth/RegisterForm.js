@@ -1,17 +1,20 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import AuthContext from "../../../contexts/AuthContext";
-import Google from "../../../assets/images/Google.png"
-import { auth, googleProvider} from "../../../configs/firebase";
+import AuthContext from "../../contexts/AuthContext";
+import Google from "../../assets/images/Google.png"
+import { useNavigate } from "react-router-dom";
+import { auth, googleProvider } from "../../configs/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth"
-import { useNavigate } from "react-router-dom"
 
-function LoginForm() {
-  const { setFormType } = useContext(AuthContext);
+function RegisterForm() {
+  const { setFormType, setUsername } = useContext(AuthContext);
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   const navigate = useNavigate();
+
+  console.log(auth?.currentUser?.email)
 
   const signIn = async () => {
     try{
@@ -30,11 +33,17 @@ function LoginForm() {
       console.log(err)
     }
   }
+
   return (
     <>
       <AuthInputsContainer>
         <InputBox>
-          <input required type="email" onChange={(e) => setEmail(e.target.value)}/>
+          <input required type="text" onChange={(e) => setUsername(e.target.value)}/>
+          <span>Nome</span>
+          <i></i>
+        </InputBox>
+        <InputBox>
+          <input required type="text" onChange={(e) => setEmail(e.target.value)}/>
           <span>Email</span>
           <i></i>
         </InputBox>
@@ -44,24 +53,21 @@ function LoginForm() {
           <i></i>
         </InputBox>
         <StyledButton onClick={signIn}>Enviar</StyledButton>
-        <StyledDividerContainer>
-          <StyledDivider />
-          <StyledOption>ou</StyledOption>
-          <StyledDivider />
-        </StyledDividerContainer>
-        <StyledGoogleButton onClick={signInWithGoogle}>
-          <img src={Google} alt="Google logo"></img>
-          Login com Google
-        </StyledGoogleButton>
       </AuthInputsContainer>
-      <Link onClick={() => setFormType("register")}>
-        Não tem um conta? <span>Cadastre-se</span>
-      </Link>
+      <StyledDividerContainer>
+        <StyledDivider />
+        <StyledOption>ou</StyledOption>
+        <StyledDivider />
+      </StyledDividerContainer>
+      <StyledGoogleButton onClick={signInWithGoogle}>
+        <img src={Google} alt="Google logo"></img>
+        Continue com Google
+      </StyledGoogleButton>
     </>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;
 
 const AuthInputsContainer = styled.div`
   width: 100%;
@@ -169,7 +175,7 @@ const StyledDividerContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 30px;
 `;
 
 const StyledDivider = styled.div`

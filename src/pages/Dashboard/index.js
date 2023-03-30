@@ -8,6 +8,7 @@ function Dashboard() {
   
   const googleUsername = auth?.currentUser?.displayName
 
+  console.log(auth?.currentUser?.uid)
 
   return (
     <div>Olá, {username ? username : googleUsername}</div>
