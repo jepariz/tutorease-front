@@ -3,14 +3,8 @@ import styled from "styled-components";
 import login from "../../assets/images/login.png";
 import tutorEaseImage from "../../assets/images/tutorEase.svg";
 import AuthForm from "../../components/Auth/Form";
-import AuthContext from "../../contexts/AuthContext";
-
 
 function Auth() {
-
-  const { formType} = useContext(AuthContext);
-
-  console.log(formType)
 
   return (
     <AuthContainer>

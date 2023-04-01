@@ -1,18 +1,29 @@
 import styled from "styled-components";
 import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
 
 
 function AuthForm() {
 
+  const {login } = useContext(AuthContext);
+
   return (
     <>
-    <AuthFormMessage>
+    {login ? <AuthFormMessage>
+        <h1>Acesse sua conta</h1>
+        <p>
+          Bem-vindo(a) de volta!.
+        </p>
+      </AuthFormMessage> : <AuthFormMessage>
         <h1>Crie sua conta</h1>
         <p>
           Falta pouco para você ter agenda e planos de aula mais organizados.
         </p>
-      </AuthFormMessage>
-    <RegisterForm/>
+      </AuthFormMessage> }
+   {login ? <LoginForm/> : <RegisterForm/> }
+    
     </>
   );
 }

@@ -1,59 +1,41 @@
-import { useContext, useState } from "react";
 import styled from "styled-components";
-import AuthContext from "../../contexts/AuthContext";
-import Google from "../../assets/images/Google.png";
-import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "../../configs/firebase";
 import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
   setPersistence,
   browserSessionPersistence,
-  updateProfile
+  signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
+import AuthContext from "../../contexts/AuthContext";
+import Google from "../../assets/images/Google.png";
 
-function RegisterForm() {
+function LoginForm() {
   const { setLogin } = useContext(AuthContext);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
 
   const navigate = useNavigate();
 
-  const signIn = async () => {
-    if (!name || !email || !password) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const LogIn = async () => {
+    if (!email || !password) {
       toast("Todos os campos devem ser preenchidos!");
       return;
     }
-    
 
     try {
       await setPersistence(auth, browserSessionPersistence);
-
-      const result = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      await updateProfile(auth.currentUser, {
-        displayName: name
-      });
+      const result = await signInWithEmailAndPassword(auth, email, password);
 
       const { uid, displayName } = result.user;
       localStorage.setItem("token", uid);
-      localStorage.setItem("displayName", displayName);
+      localStorage.setItem("displayName", displayName)
       navigate("/dashboard");
     } catch (err) {
-      if (
-        err.code === "auth/email-already-in-use" ||
-        err.code === "auth/email-already-exists"
-      ) {
-        toast("Usuário já cadastrado. Faça login clicando no link");
-      }
       console.log(err);
     }
   };
@@ -79,15 +61,6 @@ function RegisterForm() {
           <input
             required
             type="text"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <span>Nome</span>
-          <i></i>
-        </InputBox>
-        <InputBox>
-          <input
-            required
-            type="text"
             onChange={(e) => setEmail(e.target.value)}
           />
           <span>Email</span>
@@ -102,9 +75,9 @@ function RegisterForm() {
           <span>Senha</span>
           <i></i>
         </InputBox>
-        <StyledButton onClick={signIn}>Enviar</StyledButton>
-        <Link onClick={() => setLogin(true)}>
-          Já tem uma conta? <span>Faça login</span>
+        <StyledButton onClick={LogIn}>Enviar</StyledButton>
+        <Link onClick={() => setLogin(false)}>
+          Não tem uma conta? <span>Crie uma</span>
         </Link>
         <ToastContainer />
       </AuthInputsContainer>
@@ -121,7 +94,7 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+export default LoginForm;
 
 const AuthInputsContainer = styled.div`
   width: 100%;

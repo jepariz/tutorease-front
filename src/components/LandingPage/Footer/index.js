@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tutorEaseImage from "../../../assets/images/tutorEase.svg";
 
@@ -7,15 +6,12 @@ function Footer() {
     <FooterContainer>
       <img src={tutorEaseImage} alt="TutorEase logo" />
       <div>
-        <input placeholder="E-mail"></input>
-        <button>Sign Up</button>
-      </div>
-      <div>
         <ion-icon name="logo-linkedin"></ion-icon>
         <ion-icon name="logo-twitter"></ion-icon>
         <ion-icon name="logo-facebook"></ion-icon>
         <ion-icon name="logo-instagram"></ion-icon>
       </div>
+      <p>© TutorEase - Todos os direitos reservados.</p>
     </FooterContainer>
   );
 }
@@ -28,7 +24,7 @@ const FooterContainer = styled.div`
   padding: 40px;
   background-color: #dbdafd;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 250px;
   align-items: center;
 
@@ -37,59 +33,38 @@ const FooterContainer = styled.div`
     height: 60px;
   }
 
-  div {
-    display: flex;
+  p {
+    font-size: 14px;
+    color: #5f41b2;
+  }
 
+  button {
+    width: auto;
+    min-width: 94px;
+    height: 48px;
+    padding: 5px 20px;
+    border-radius: 0px 4px 4px 0px;
+    background-color: #fefefe;
+    color: #5f41b2;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: "Nunito", sans-serif;
+  }
+
+  ion-icon {
+    font-size: 30px;
+    color: #5f41b2;
+    margin-left: 10px;
+  }
+
+  @media (max-width: 768px) {
     input {
-      width: 295px;
-      height: 48px;
-      border-radius: 4px 0px 0px 4px;
-      background-color: #f3f5f7;
-      border: none;
-      color: #5f41b2;
-      font-weight: 500;
-      padding: 10px;
-      font-size: 16px;
-      box-sizing: border-box;
-
-      &::placeholder {
-        font-size: 16px;
-        color: #6f757b;
-      }
-
-      &:focus {
-        outline: none;
-      }
+      width: 200px;
     }
 
     button {
-      width: auto;
-      min-width: 94px;
-      height: 48px;
-      padding: 5px 20px;
-      border-radius: 0px 4px 4px 0px;
-      background-color: #fefefe;
-      color: #5f41b2;
-      border: none;
-      font-weight: 700;
-      font-size: 16px;
-      font-family: "Nunito", sans-serif;
-    }
-
-    ion-icon {
-      font-size: 25px;
-      color: #5f41b2;
-      margin-left: 10px;
-    }
-
-    @media (max-width: 768px) {
-      input {
-        width: 200px;
-      }
-
-      button{
-        font-size: 14px;
-      }
+      font-size: 14px;
     }
   }
 

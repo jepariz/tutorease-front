@@ -2,8 +2,7 @@ import styled from "styled-components";
 import prof2 from "../../../assets/images/prof2.png";
 import { useNavigate } from "react-router-dom";
 import "animate.css";
-import { useContext } from "react";
-import AuthContext from "../../../contexts/AuthContext";
+
 
 function Content() {
 
@@ -107,18 +106,6 @@ const StyledRegisterButton = styled.button`
   border: none;
   font-weight: 700;
   font-size: 16px;
- 
+  cursor: pointer;
 `;
-const StyledLoginButton = styled.button`
-  width: auto;
-  min-width: 94px;
-  height: 48px;
-  padding: 5px 20px;
-  border-radius: 4px;
-  background-color: #fefefe;
-  color: #5f41b2;
-  border: 3px solid #5f41b2;
-  font-weight: 700;
-  font-size: 16px;
-  
-`;
+
