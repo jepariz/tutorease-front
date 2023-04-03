@@ -141,7 +141,7 @@ const DashboardNavbarOptionsContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: ${props => props.isActive ? '0' : '30px'};
   overflow: hidden;
 
   a {
@@ -151,6 +151,7 @@ const DashboardNavbarOptionsContainer = styled.div`
   & > :nth-child(5) {
     margin-top: 110px;
   }
+
 `;
 
 const NavbarButton = styled.div`
@@ -159,10 +160,9 @@ const NavbarButton = styled.div`
   align-items: center;
   gap: 15px;
   transition: all 0.2s ease-in-out;
-  padding: 0 30px;
   background-color: ${props => props.isActive ? '#5F41B2' : null};
-  padding:${props => props.isActive ? "17px" : null} ;
- 
+  padding:${props => props.isActive ? "17px 30px" : '0 30px'} ;
+
 
   ion-icon {
     font-size: 26px;
@@ -178,19 +178,19 @@ const NavbarButton = styled.div`
   }
 
   &:hover {
-    background: #7F74FA;
+    background: #f0f0f5;
     transform: scale(1.1);
     transform-origin: left;
     padding: 17px;
     gap: 10px;
 
     p {
-      color: #fefefe;
+      color: #5F41B2;
       font-weight: 700;
     }
 
     ion-icon {
-      color: #fefefe;
+      color: #5F41B2;
     }
   }
 
@@ -201,7 +201,7 @@ const Logout = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  gap: 20px;
+  gap: 10px;
   padding: 0 30px 0 30px;
   position: absolute;
   bottom: 30px;
