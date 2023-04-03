@@ -68,7 +68,10 @@ function AvatarImageChange() {
 export default AvatarImageChange;
 
 const DropzoneContainer = styled.div`
-  width: 100%;
+  width: 60%;
+  height: 100%;
+  background-color: #f0f0f5;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;

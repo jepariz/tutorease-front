@@ -35,7 +35,7 @@ function LoginForm() {
       localStorage.setItem("token", uid);
       localStorage.setItem("displayName", displayName)
       localStorage.setItem("photoURL", photoURL)
-      navigate("/dashboard");
+      navigate("/dashboard/schedule");
     } catch (err) {
       console.log(err);
     }
@@ -49,7 +49,7 @@ function LoginForm() {
       localStorage.setItem("displayName", displayName);
       localStorage.setItem("photoURL", photoURL);
       localStorage.setItem("token", uid);
-      navigate("/dashboard");
+      navigate("/dashboard/schedule");
     } catch (err) {
       console.error(err);
     }

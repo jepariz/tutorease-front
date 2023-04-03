@@ -8,6 +8,7 @@ export function AuthProvider({ children }) {
   const [login, setLogin] = useState(false);
   const [username, setUsername] = useState("");
   const [avatarChange, setAvatarChange] = useState(false);
+  const [students, setStudents] = useState(false);
 
   return (
     <AuthContext.Provider
@@ -18,6 +19,8 @@ export function AuthProvider({ children }) {
         setUsername,
         avatarChange,
         setAvatarChange,
+        students,
+        setStudents,
       }}
     >
       {children}

@@ -1,20 +1,20 @@
 import styled from "styled-components";
 import waving from "../../assets/images/waving.png";
 
-function Schedule({ nome }) {
-  const firstName = nome?.split(" ")[0];
+function Schedule() {
+  const displayName = localStorage.getItem("displayName");
+  const firstName = displayName.split(" ")[0];
 
   return (
     <ScheduleContainer>
       <ScheduleMessage>
         <div>
           <h2>Olá, {firstName}</h2>
-          <img src={waving}></img>
+          <img src={waving} alt="ícone de mão acenando"></img>
         </div>
         <p>Aqui está a sua agenda de hoje.</p>
       </ScheduleMessage>
       <ScheduleDetails>
-
       </ScheduleDetails>
     </ScheduleContainer>
   );

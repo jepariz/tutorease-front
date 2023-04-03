@@ -23,7 +23,7 @@ function RegisterForm() {
 
   const navigate = useNavigate();
 
-  const signIn = async () => {
+  const signUp = async () => {
     if (!name || !email || !password) {
       toast("Todos os campos devem ser preenchidos!");
       return;
@@ -46,7 +46,7 @@ function RegisterForm() {
       const { uid, displayName } = result.user;
       localStorage.setItem("token", uid);
       localStorage.setItem("displayName", displayName);
-      navigate("/dashboard");
+      navigate("/dashboard/schedule");
     } catch (err) {
       if (
         err.code === "auth/email-already-in-use" ||
@@ -66,7 +66,7 @@ function RegisterForm() {
       localStorage.setItem("displayName", displayName);
       localStorage.setItem("photoURL", photoURL);
       localStorage.setItem("token", uid);
-      navigate("/dashboard");
+      navigate("/dashboard/schedule");
     } catch (err) {
       console.error(err);
     }
@@ -102,7 +102,7 @@ function RegisterForm() {
           <span>Senha</span>
           <i></i>
         </InputBox>
-        <StyledButton onClick={signIn}>Enviar</StyledButton>
+        <StyledButton onClick={signUp}>Enviar</StyledButton>
         <Link onClick={() => setLogin(true)}>
           Já tem uma conta? <span>Faça login</span>
         </Link>
