@@ -31,9 +31,10 @@ function LoginForm() {
       await setPersistence(auth, browserSessionPersistence);
       const result = await signInWithEmailAndPassword(auth, email, password);
 
-      const { uid, displayName } = result.user;
+      const { uid, displayName, photoURL } = result.user;
       localStorage.setItem("token", uid);
       localStorage.setItem("displayName", displayName)
+      localStorage.setItem("photoURL", photoURL)
       navigate("/dashboard");
     } catch (err) {
       console.log(err);
