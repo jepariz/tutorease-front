@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
 import { auth } from "../../configs/firebase";
@@ -6,10 +6,12 @@ import styled from "styled-components";
 import avatar from "../../assets/images/avatar.png";
 import Schedule from "../../components/Dashboard/Schedule";
 import { signOut } from "firebase/auth";
+import { Tooltip } from "react-tooltip";
+import AvatarImageChange from "../../components/Dashboard/AvatarImageChange";
+import { useEffect } from "react";
 
 function Dashboard() {
-  const { username } = useContext(AuthContext);
-
+  const { username, newAvatar, avatarChange, setAvatarChange } = useContext(AuthContext);
   const displayName = localStorage.getItem("displayName");
   const photoURL = localStorage.getItem("photoURL");
 
@@ -27,36 +29,58 @@ function Dashboard() {
     }
   };
 
+  useEffect(() => {
+    const photoURL = localStorage.getItem("photoURL");
+  }, [newAvatar])
+
   return (
-    <DashBoardBackground>
-      <DashboardLayout>
-        <DasboardNavbar>
-          <UserInfo>
-            <img src={photoURL ? photoURL : avatar} alt="Avatar do usuário"></img>
-            <h2>{displayName ? displayName : username}</h2>
-          </UserInfo>
-          <DashboardNavbarOptionsContainer>
-            <div>
-              <ion-icon name="calendar-outline"></ion-icon>
-              <p>Agenda</p>
-            </div>
-            <div>
-              <ion-icon name="people-outline"></ion-icon>
-              <p>Alunos</p>
-            </div>
-            <div>
-              <ion-icon name="book-outline"></ion-icon>
-              <p>Planos de aula</p>
-            </div>
-            <div onClick={logout}>
-              <ion-icon name="log-out-outline"></ion-icon>
-              <p>Logout</p>
-            </div>
-          </DashboardNavbarOptionsContainer>
-        </DasboardNavbar>
-        <Schedule nome={displayName} />
-      </DashboardLayout>
-    </DashBoardBackground>
+    <>
+      <DashBoardBackground>
+        <DashboardLayout>
+          <DasboardNavbar>
+            <UserInfo>
+              <img
+                src={photoURL ? photoURL : avatar}
+                alt="Avatar do usuário"
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="Clique para alterar a imagem"
+                onClick={() => setAvatarChange(true)}
+              ></img>
+              <h2>{displayName ? displayName : username}</h2>
+            </UserInfo>
+            <DashboardNavbarOptionsContainer>
+              <div>
+                <ion-icon name="calendar-outline"></ion-icon>
+                <p>Agenda</p>
+              </div>
+              <div>
+                <ion-icon name="people-outline"></ion-icon>
+                <p>Alunos</p>
+              </div>
+              <div>
+                <ion-icon name="book-outline"></ion-icon>
+                <p>Planos de aula</p>
+              </div>
+              <div onClick={logout}>
+                <ion-icon name="log-out-outline"></ion-icon>
+                <p>Logout</p>
+              </div>
+            </DashboardNavbarOptionsContainer>
+          </DasboardNavbar>
+          {avatarChange ? (
+            <AvatarImageChange />
+          ) : (
+            <>
+            <Schedule nome={displayName} />
+            </>
+          )}
+        </DashboardLayout>
+      </DashBoardBackground>
+      <Tooltip
+        id="my-tooltip"
+        style={{ backgroundColor: "#5F41B2", color: "#fefefe" }}
+      />
+    </>
   );
 }
 

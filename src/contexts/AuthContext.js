@@ -7,7 +7,7 @@ export default AuthContext;
 export function AuthProvider({ children }) {
   const [login, setLogin] = useState(false);
   const [username, setUsername] = useState("");
-
+  const [avatarChange, setAvatarChange] = useState(false);
 
   return (
     <AuthContext.Provider
@@ -16,6 +16,8 @@ export function AuthProvider({ children }) {
         setLogin,
         username,
         setUsername,
+        avatarChange,
+        setAvatarChange,
       }}
     >
       {children}
